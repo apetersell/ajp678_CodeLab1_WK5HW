@@ -48,7 +48,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\StageBuilder.cs" />
+     <None Include="Assets\Levels\Stage1.txt" />
+     <None Include="Assets\Levels\Stage2.txt" />
+     <None Include="Assets\Levels\Stage4.txt" />
      <None Include="Assets\Levels\Stage0.txt" />
+     <None Include="Assets\Levels\Stage3.txt" />
+     <None Include="Assets\EmptyTextFile.txt" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>

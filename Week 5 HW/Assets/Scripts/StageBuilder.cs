@@ -6,21 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class StageBuilder : MonoBehaviour {
 
-	public GameObject playerGuy; 
-	public GameObject playerGal; 
-	public GameObject block; 
+	public GameObject guyPrefab; 
+	public GameObject galPrefab; 
+	public GameObject blockPrefab;
+	public GameObject coinPrefab;
 	public string [] fileNames;
-	public static int stageNum; 
+	public static int stageNum = 0; 
+	public float xOffSet;
+	public float yOffSet;
+	public KeyCode test; 
 
 
 	// Use this for initialization
 	void Start () {
 		string fileName = fileNames [stageNum];
-		string filePath = Application.dataPath + "/" + fileName; 
+		string filePath = Application.dataPath + "/Levels/" + fileName; 
 
 		StreamReader sr = new StreamReader (filePath);
 
 		int yPos = 0;
+
+		GameObject stageHolder = new GameObject ("Stage Holder");
+
 
 		while(!sr.EndOfStream)
 		{
@@ -31,12 +38,48 @@ public class StageBuilder : MonoBehaviour {
 
 				if(line[xPos] == 'X')
 				{ 
+					Vector2 spawnPos = new Vector2 (xPos, yPos); 
+					GameObject block = Instantiate (blockPrefab);
+					block.transform.parent = stageHolder.transform;
 
+					block.transform.position = new Vector3(
+						xPos + xOffSet, 
+						yPos + yOffSet);
 				}
 
 				if (line [xPos] == 'B') 
 				{
-					 
+					Vector2 spawnPos = new Vector2 (xPos, yPos); 
+					GameObject playerGuy = Instantiate (guyPrefab); 
+					playerGuy.transform.parent = stageHolder.transform;
+
+					playerGuy.transform.position = new Vector3(
+						xPos + xOffSet, 
+						yPos + yOffSet);
+				}
+
+				if (line [xPos] == 'G') 
+				{
+					Vector2 spawnPos = new Vector2 (xPos, yPos); 
+					GameObject playerGal = Instantiate (galPrefab); 
+					playerGal.transform.parent = stageHolder.transform;
+
+					playerGal.transform.position = new Vector3(
+						xPos + xOffSet, 
+						yPos + yOffSet);
+				
+				}
+
+				if (line [xPos] == 'C') 
+				{
+					Vector2 spawnPos = new Vector2 (xPos, yPos); 
+					GameObject coin = Instantiate (coinPrefab); 
+					coin.transform.parent = stageHolder.transform;
+
+					coin.transform.position = new Vector3(
+						xPos + xOffSet, 
+						yPos + yOffSet);
+
 				}
 			}
 			yPos--; 
@@ -48,6 +91,10 @@ public class StageBuilder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKeyDown (test)) 
+		{
+			stageNum++; 
+			SceneManager.LoadScene ("Week 5 Game");
+		}
 	}
 }
