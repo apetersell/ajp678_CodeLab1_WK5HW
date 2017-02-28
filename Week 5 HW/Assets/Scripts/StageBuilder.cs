@@ -15,6 +15,9 @@ public class StageBuilder : MonoBehaviour {
 	public float xOffSet;
 	public float yOffSet;
 	public KeyCode test; 
+	public static float timer;
+	public static float timerLimit; 
+	public float limitSet;
 
 
 	// Use this for initialization
@@ -27,6 +30,8 @@ public class StageBuilder : MonoBehaviour {
 		int yPos = 0;
 
 		GameObject stageHolder = new GameObject ("Stage Holder");
+
+		timerLimit = limitSet;
 
 
 		while(!sr.EndOfStream)
@@ -87,10 +92,19 @@ public class StageBuilder : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (test)) 
+
+		timer++;
+
+		if (timer >= timerLimit) 
 		{
+			timer = 0;
 			stageNum++; 
 			SceneManager.LoadScene ("Week 5 Game");
+		}
+
+		if (stageNum > 4) 
+		{
+			stageNum = 0;
 		}
 	}
 }
