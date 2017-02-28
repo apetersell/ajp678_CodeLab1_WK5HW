@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float xVelocity;
 	public float yVelocity;
 
+	public int playerNum; 
 	public float moveSpeed;
 	public float airSpeedModifier;
 	public float hoverAirSpeed; 
@@ -127,17 +128,24 @@ public class PlayerMovement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D touched)
 	{
-		if (touched.gameObject.tag == "Floor") 
-		{
+		if (touched.gameObject.tag == "Floor") {
 			grounded = true;
 			inAir = false;
 			canHover = false;
 			airSpeedModifier = normalAirSpeed;
 			rb.gravityScale = normalGrav; 
-			if (!Input.GetKey (jump)) 
-			{
+			if (!Input.GetKey (jump)) {
 				canJump = true;
 			}
+		}
+	}
+
+	void OnTriggerEnter2D (Collider2D touched)
+	{
+		if (touched.gameObject.tag == "Coin")   
+		{
+			ScoreManager.scoreCard.scorePoints (playerNum);
+			Destroy (touched.gameObject); 
 		}
 		
 	}

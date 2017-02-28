@@ -37,8 +37,7 @@ public class StageBuilder : MonoBehaviour {
 			{
 
 				if(line[xPos] == 'X')
-				{ 
-					Vector2 spawnPos = new Vector2 (xPos, yPos); 
+				{  
 					GameObject block = Instantiate (blockPrefab);
 					block.transform.parent = stageHolder.transform;
 
@@ -48,8 +47,7 @@ public class StageBuilder : MonoBehaviour {
 				}
 
 				if (line [xPos] == 'B') 
-				{
-					Vector2 spawnPos = new Vector2 (xPos, yPos); 
+				{ 
 					GameObject playerGuy = Instantiate (guyPrefab); 
 					playerGuy.transform.parent = stageHolder.transform;
 
@@ -60,7 +58,6 @@ public class StageBuilder : MonoBehaviour {
 
 				if (line [xPos] == 'G') 
 				{
-					Vector2 spawnPos = new Vector2 (xPos, yPos); 
 					GameObject playerGal = Instantiate (galPrefab); 
 					playerGal.transform.parent = stageHolder.transform;
 
@@ -71,8 +68,7 @@ public class StageBuilder : MonoBehaviour {
 				}
 
 				if (line [xPos] == 'C') 
-				{
-					Vector2 spawnPos = new Vector2 (xPos, yPos); 
+				{ 
 					GameObject coin = Instantiate (coinPrefab); 
 					coin.transform.parent = stageHolder.transform;
 
