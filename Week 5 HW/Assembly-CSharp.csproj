@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\StageBuilder.cs" />
      <None Include="Assets\Levels\Stage1.txt" />
      <None Include="Assets\Levels\Stage2.txt" />
