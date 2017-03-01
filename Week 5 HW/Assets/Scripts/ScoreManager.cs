@@ -33,12 +33,18 @@ public class ScoreManager : MonoBehaviour {
 		{
 			SceneManager.LoadScene ("Player Gal Wins");
 			canReset = true;
+			galScore = 0;
+			guyScore = 0;
+			StageBuilder.timer = 0;
 		}
 
 		if (guyScore >= pointsToWin) 
 		{
 			SceneManager.LoadScene ("Player Guy Wins");
 			canReset = true;
+			galScore = 0;
+			guyScore = 0;
+			StageBuilder.timer = 0;
 		}
 
 		if (canReset == true) 
@@ -46,9 +52,6 @@ public class ScoreManager : MonoBehaviour {
 			if (Input.GetKeyDown (restart)) 
 			{
 				Debug.Log ("Hit reset.");
-				galScore = 0;
-				guyScore = 0;
-				StageBuilder.timer = 0;
 				SceneManager.LoadScene ("Week 5 Game");
 			}
 		}

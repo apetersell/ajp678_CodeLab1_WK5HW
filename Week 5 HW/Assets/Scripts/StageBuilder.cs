@@ -102,7 +102,7 @@ public class StageBuilder : MonoBehaviour {
 			SceneManager.LoadScene ("Week 5 Game");
 		}
 
-		if (stageNum > 4) 
+		if (stageNum > 9) 
 		{
 			stageNum = 0;
 		}
